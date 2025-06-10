@@ -1,0 +1,14 @@
+# Logs do seu projeto ou de ferramentas
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de sistema e temporários do seu sistema operacional ou editor
+.DS_Store          # Arquivos do macOS
+Thumbs.db          # Arquivos do Windows
+.vscode/           # Configurações locais do VS Code (se não quiser compartilhar)
+
+# Arquivos de ambiente (que contêm segredos ou configurações locais)
+.env               # O arquivo .env principal
+*.env              # Qualquer arquivo que termine com .env (ex: .env.production)
