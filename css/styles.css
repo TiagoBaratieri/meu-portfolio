@@ -1,0 +1,284 @@
+/*Roboto para minimalismo e legibilidade */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+
+/* --- Reset Básico para Consistência entre Navegadores --- */
+/* Isso remove margens/padding padrão e define o box-sizing para facilitar o layout */
+/* --- Variáveis CSS (Cores e Espaçamentos Comuns) --- */
+/* Facilita a manutenção e garante consistência */
+:root {
+  --primary-color: #1e90ff; /* Azul vibrante, seu tom do header */
+  --secondary-color: #daa520; /* Dourado, seu tom do intro */
+  --text-dark: #333; /* Cor principal de texto */
+  --text-light: #eee; /* Cor de texto claro */
+  --background-light: #f4f4f4; /* Fundo geral claro */
+  --background-dark: #696969; /* Fundo do footer */
+  --border-color-light: rgba(255, 255, 255, 0.1); /* Borda sutil */
+  --button-primary: #007bff; /* Azul dos botões */
+  --button-primary-hover: #0056b3;
+  --button-secondary: transparent;
+  --button-secondary-text: #007bff; /* Cor do texto do botão secundário */
+  --button-secondary-hover: #f0f0f0;
+
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 20px;
+  --spacing-xl: 40px;
+
+  --border-radius-sm: 5px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 50%; /* Para imagens redondas */
+}
+
+/* --- Reset Básico para Consistência entre Navegadores --- */
+/* Isso remove margens/padding padrão e define o box-sizing para facilitar o layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho do elemento */
+}
+
+/* --- Estilos Gerais do Corpo da Página --- */
+body {
+  font-family: "Roboto", sans-serif; /* Aplica a fonte importada */
+  line-height: 1.6; /* Espaçamento entre linhas para melhor legibilidade */
+  color: var(--text-dark); /* Cor padrão para textos escuros, usando variável */
+  background-color: var(
+    --background-light
+  ); /* Fundo cinza claro para o corpo, usando variável */
+  overflow-x: hidden; /* Evita rolagem horizontal indesejada em mobile */
+}
+
+/* --- Estilos de Títulos e Parágrafos --- */
+h1 {
+  font-size: 2.2rem; /* Aumentado para melhor impacto em desktop */
+  margin-bottom: var(--spacing-sm); /* Espaçamento abaixo do título */
+  color: var(
+    --text-dark
+  ); /* Pode variar para a cor primária se for um título de destaque */
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+p {
+  margin-bottom: var(--spacing-md); /* Espaçamento abaixo dos parágrafos */
+  font-size: 1rem; /* Tamanho base para parágrafos */
+  color: var(--text-dark); /* Cor padrão do parágrafo */
+}
+
+/* --- Estilos para Links --- */
+a {
+  color: var(--primary-color); /* Cor de destaque para links */
+  text-decoration: none; /* Remove sublinhado padrão */
+  transition: color 0.3s ease; /* Transição suave na mudança de cor */
+}
+
+a:hover {
+  color: var(--button-primary-hover); /* Cor ao passar o mouse */
+}
+
+/* --- Header --- */
+header {
+  display: flex;
+  justify-content: space-between; /* Alinha logo à esquerda e nav à direita */
+  align-items: center; /* Centraliza verticalmente */
+  background-color: var(--primary-color); /* Cor de fundo do header */
+  padding: var(--spacing-sm) var(--spacing-md); /* Preenchimento para espaçamento interno */
+  width: 100%; /* Ocupa toda a largura, 'max-width: 100vw' é redundante com width: 100% e box-sizing */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para destaque */
+}
+
+.logo img {
+  width: 45px; /* Tamanho fixo para o logo, mais previsível */
+  height: auto; /* Mantém a proporção */
+  display: block; /* Remove espaço em branco abaixo da imagem */
+}
+
+.nav-links {
+  display: flex; /* Flexbox para alinhar links horizontalmente */
+  list-style-type: none; /* Remove marcadores de lista */
+}
+
+.nav-links li {
+  margin: 0 var(--spacing-sm); /* Espaçamento entre os links */
+  font-size: 0.714rem; /* Aproximadamente 10px se html for 14px (10/14 ≈ 0.714) */
+}
+
+.nav-links a {
+  color: var(--text-light); /* Cor dos links na navegação */
+  font-weight: 500; /* Um pouco mais de peso na fonte */
+  font-size: 0.714rem; /* Tamanho da fonte padrão, mais legível */
+  padding: var(--spacing-xs) 0; /* Pequeno padding para área de clique */
+  position: relative; /* Para o efeito de sublinhado */
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--text-light);
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* --- Seção de Introdução (#intro) --- */
+#intro {
+  max-width: 100vw; /* Garante que o fundo ocupe toda a largura da viewport */
+  background-color: var(
+    --secondary-color
+  ); /* Cor de fundo do intro, usando variável */
+  border-radius: var(
+    --border-radius-sm
+  ); /* Bordas arredondadas, usando variável */
+  margin: 0.5rem; /* Margem ao redor do intro */
+}
+
+/* Estilo para o container principal da seção */
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza os itens horizontalmente */
+  justify-content: center; /* Centraliza verticalmente (se necessário) */
+  gap: var(--spacing-md); /* Espaço entre a imagem e o texto/título */
+  text-align: center;
+}
+
+.intro-content h1 {
+  color: var(--text-dark); /* Cor do título principal na seção intro */
+  font-size: 2.5rem; /* Aumenta o tamanho para destaque */
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Estilo para a imagem de perfil */
+.profile-image {
+  margin-top: var(--spacing-lg);
+  max-width: 180px; /* Tamanho ligeiramente menor, mais proporcional */
+  height: auto;
+  border-radius: var(--border-radius-lg); /* Imagem redonda */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra um pouco mais forte */
+  object-fit: cover;
+  border: 4px solid var(--primary-color); /* Uma borda colorida sutil */
+}
+
+.btn-conatainer {
+  display: flex;
+  gap: var(--spacing-md); /* Espaçamento entre os botões */
+  margin-top: var(--spacing-lg); /* Margem acima dos botões */
+  flex-wrap: wrap; /* Permite que os botões se movam para a próxima linha em telas menores */
+  justify-content: center; /* Centraliza os botões */
+  margin-bottom: var(--spacing-lg); /* Espaçamento abaixo dos botões */
+}
+
+/* Estilos básicos para todos os botões */
+.button {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: var(--border-radius-md);
+  font-weight: bold;
+  font-size: 1.05rem; /* Levemente maior */
+  text-decoration: none; /* Assegura que links não tenham sublinhado */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+  min-width: 160px; /* Garante uma largura mínima para botões */
+  text-align: center; /* Centraliza o texto dentro do botão */
+}
+
+/* Estilo para o botão primário */
+.primary-button {
+  background-color: var(--button-primary);
+  color: white;
+  border: 2px solid var(--button-primary);
+}
+
+.primary-button:hover {
+  background-color: var(--button-primary-hover);
+  border-color: var(--button-primary-hover); /* Mantém a borda da mesma cor */
+  transform: translateY(-2px);
+}
+
+/* Estilo para o botão secundário */
+.secondary-button {
+  background-color: var(--button-secondary);
+  color: var(--button-secondary-text);
+  border: 2px solid var(--button-secondary-text);
+}
+
+.secondary-button:hover {
+  background-color: var(--button-secondary-hover);
+  color: var(
+    --button-primary
+  ); /* Muda a cor do texto para o primário ao passar o mouse */
+  transform: translateY(-2px);
+}
+
+footer {
+  background-color: #696969; /* Cor de fundo do rodapé */
+  max-width: 100vw;
+  text-align: center;
+  font-size: 0.9rem; /* Tamanho de fonte um pouco menor para o footer */
+  line-height: 1.6; /* Espaçamento entre linhas para melhor leitura */
+  padding: 1rem; /* Preenchimento interno do rodapé */
+}
+
+/* --- Footer --- */
+footer {
+  background-color: var(--background-dark); /* Cor de fundo do rodapé */
+  color: var(--text-light); /* Cor do texto do rodapé */
+  padding: var(--spacing-lg) var(--spacing-md); /* Preenchimento interno do rodapé */
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  width: 100%; /* Garante que ocupe toda a largura */
+  margin-top: var(
+    --spacing-xl
+  ); /* Espaço acima do footer para separar do conteúdo */
+}
+
+.footer-section.copyright {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--border-color-light); /* Linha divisória sutil */
+  color: var(
+    --text-light
+  ); /* Garante que o texto de copyright também seja claro */
+}
+
+.footer-section.copyright p {
+  margin-bottom: var(--spacing-xs);
+  color: var(
+    --text-light
+  ); /* Garante que os parágrafos internos usem a cor clara */
+}
+
+/* Estilo para a tagline (frase de impacto) */
+.footer-section.copyright .tagline {
+  font-style: italic;
+  font-size: 1.1rem; /* Levemente maior */
+  color: var(
+    --secondary-color
+  ); /* Usa a cor do intro para destaque, ou uma nova cor de acento */
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Estilo para a lista de tecnologias */
+.footer-section.copyright .tech-stack {
+  font-size: 0.85rem;
+  color: var(
+    --text-light
+  ); /* Usa a cor de texto claro, ou uma variação mais suave */
+}
