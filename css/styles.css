@@ -33,6 +33,7 @@
 /* --- Reset Básico para Consistência entre Navegadores --- */
 /* Isso remove margens/padding padrão e define o box-sizing para facilitar o layout */
 * {
+  
   margin: 0;
   padding: 0;
   box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho do elemento */
@@ -184,15 +185,13 @@ header {
   margin-left: auto; /* Centraliza horizontalmente */
   margin-right: auto; /* Centraliza horizontalmente */
   left: auto; /* Ajuda na centralização com margin: auto */
-  right: var(--spacing-sm); 
+  right: var(--spacing-sm);
 }
 
 /* --- Seção de Introdução (#intro) --- */
 #intro {
   max-width: 100vw; /* Garante que o fundo ocupe toda a largura da viewport */
-  background-color: var(
-    --secondary-color
-  ); 
+  background-color: var(--secondary-color);
   border-radius: var(
     --border-radius-sm
   ); /* Bordas arredondadas, usando variável */
@@ -210,14 +209,38 @@ header {
   text-align: center;
 }
 
-.intro-content h1 {
-  color: var(--text-dark); /* Cor do título principal na seção intro */
-  font-size: 2.5rem; /* Aumenta o tamanho para destaque */
-  margin-bottom: var(--spacing-sm);
+.context-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.context-text h1 {
+  text-align: center;
+  font-size: 2rem; /* Tamanho para mobile */
+}
+
+.context-text p {
+  text-align: center;
+}
+
+.tech-icon {
+  width: 1em; /* Tamanho relativo ao tamanho da fonte do texto */
+  height: 1em;
+  vertical-align: middle; /* Alinha o ícone verticalmente */
+  margin-right: var(--spacing-xs);
+}
+
+.context-text p a img {
+  width: 1.1em; /* Ajusta o tamanho da imagem para ficar proporcional ao texto do link */
+  height: 1.1em;
 }
 
 /* Estilo para a imagem de perfil */
 .profile-image {
+  display: flex;
   margin-top: var(--spacing-lg);
   max-width: 180px; /* Tamanho ligeiramente menor, mais proporcional */
   height: auto;
@@ -407,4 +430,30 @@ footer {
     ); /* Muda a cor do texto para o primário ao passar o mouse */
     transform: translateY(-2px);
   }
+  
+}
+
+/* --- NOVO BREAKPOINT (para 768px e acima) --- */
+@media (min-width: 768px) {
+  .nav-links li {
+    margin: 0 var(--spacing-md);
+  }
+
+  .nav-links a {
+    font-size: 1.3rem;
+  }
+
+  .intro-content {
+    flex-direction: row; /* Alinha imagem e texto lado a lado */
+    height: 60vh; /* Ocupa 60% da altura da viewport */
+  }
+
+  .image-content {
+    margin: var(--spacing-sm);
+  }
+
+  .btn-container {
+    margin: var(--spacing-sm);
+  }
+
 }
