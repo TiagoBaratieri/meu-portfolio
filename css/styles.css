@@ -94,44 +94,97 @@ header {
   padding: var(--spacing-sm) var(--spacing-md); /* Preenchimento para espaçamento interno */
   width: 100%; /* Ocupa toda a largura, 'max-width: 100vw' é redundante com width: 100% e box-sizing */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para destaque */
+  position: relative; /* Permite posicionamento absoluto de elementos internos, se necessário */
 }
 
 .logo img {
-  width: 45px; /* Tamanho fixo para o logo, mais previsível */
+  width: 40px; /* Tamanho fixo para o logo, mais previsível */
   height: auto; /* Mantém a proporção */
   display: block; /* Remove espaço em branco abaixo da imagem */
 }
 
+/* --- Estilos do Menu Hambúrguer (Ícone) para 320px e acima (Mobile) --- */
+.burguer_menu {
+  width: 20px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.burguer_menu div {
+  width: 100%;
+  height: 2.5px; /* Linhas mais finas */
+  background-color: var(--text-light);
+  transition: all 0.3s ease;
+}
+/* --- Navegação (Menu Links) - ESCONDIDA em Mobile (0px a 575px) --- */
 .nav-links {
-  display: flex; /* Flexbox para alinhar links horizontalmente */
-  list-style-type: none; /* Remove marcadores de lista */
+  display: none; /* <--- ESCONDIDO POR PADRÃO em mobile (0px a 575px) */
+  flex-direction: column; /* Links empilhados quando visíveis */
+  align-items: flex-end; /* Centraliza links quando visíveis */
+  background-color: var(--primary-color); /* Fundo transparente para o menu */
+  position: absolute; /* Para que o menu flutue sobre o conteúdo */
+  top: 100%; /* Posiciona abaixo do header */
+  left: 0;
+  width: 100%; /* Ocupa a largura total */
+  padding: var(--spacing-md) 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  list-style-type: none;
+  transform: translateY(-100%); /* Esconde para fora da tela (animação) */
+  transition: transform 0.3s ease-in-out; /* Animação habilitada */
+  z-index: 10; /* Abaixo do ícone do hambúrguer */
 }
 
 .nav-links li {
-  margin: 0 var(--spacing-sm); /* Espaçamento entre os links */
-  font-size: 0.714rem; /* Aproximadamente 10px se html for 14px (10/14 ≈ 0.714) */
+  margin: var(--spacing-xs) 0; /* Espaçamento vertical entre os itens */
 }
 
 .nav-links a {
-  color: var(--text-light); /* Cor dos links na navegação */
-  font-weight: 500; /* Um pouco mais de peso na fonte */
-  font-size: 0.714rem; /* Tamanho da fonte padrão, mais legível */
-  padding: var(--spacing-xs) 0; /* Pequeno padding para área de clique */
-  position: relative; /* Para o efeito de sublinhado */
+  color: var(--text-light);
+  font-weight: 500;
+  font-size: 1.05rem; /* Tamanho legível para mobile */
+  position: relative;
+  display: block;
 }
+
 .nav-links a::after {
   content: "";
   position: absolute;
   width: 0;
   height: 2px;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: var(--text-light);
   transition: width 0.3s ease-in-out;
 }
 
 .nav-links a:hover::after {
-  width: 100%;
+  width: 80%;
+}
+
+.burguer_menu.active .line1 {
+  transform: translateY(11px) rotate(45deg);
+}
+.burguer_menu.active .line2 {
+  opacity: 0;
+}
+.burguer_menu.active .line3 {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+.nav-links.active {
+  display: flex; /* MOSTRA o menu */
+  transform: translateY(0); /* Desliza para a posição visível */
+  background-color: var(--primary-color-transparent);
+  max-width: 320px; /* Define a largura máxima do menu aberto */
+  margin-left: auto; /* Centraliza horizontalmente */
+  margin-right: auto; /* Centraliza horizontalmente */
+  left: auto; /* Ajuda na centralização com margin: auto */
+  right: var(--spacing-sm); 
 }
 
 /* --- Seção de Introdução (#intro) --- */
@@ -139,7 +192,7 @@ header {
   max-width: 100vw; /* Garante que o fundo ocupe toda a largura da viewport */
   background-color: var(
     --secondary-color
-  ); /* Cor de fundo do intro, usando variável */
+  ); 
   border-radius: var(
     --border-radius-sm
   ); /* Bordas arredondadas, usando variável */
@@ -174,7 +227,7 @@ header {
   border: 4px solid var(--primary-color); /* Uma borda colorida sutil */
 }
 
-.btn-conatainer {
+.btn-container {
   display: flex;
   gap: var(--spacing-md); /* Espaçamento entre os botões */
   margin-top: var(--spacing-lg); /* Margem acima dos botões */
@@ -281,4 +334,77 @@ footer {
   color: var(
     --text-light
   ); /* Usa a cor de texto claro, ou uma variação mais suave */
+}
+
+@media (min-width: 576px) {
+  .nav-links {
+    display: flex; /* <--- Menu VISÍVEL em desktop */
+    position: static; /* Remove o posicionamento absoluto */
+    flex-direction: row; /* Links lado a lado */
+    width: auto; /* Largura automática */
+    padding: 0;
+    box-shadow: none;
+    transform: translateY(0); /* Remove transformação */
+    transition: none; /* Remove transição */
+  }
+
+  .nav-links li {
+    margin: 0 var(--spacing-sm);
+    font-size: 0.714rem; /* Tamanho original para desktop */
+    width: auto; /* Remove largura fixa */
+    text-align: left;
+  }
+
+  .nav-links a {
+    font-size: 0.714rem;
+    text-align: left;
+  }
+
+  .nav-links a::after {
+    left: 0;
+    transform: translateX(0);
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  p {
+    margin: 0 var(--spacing-xs) 0 var(--spacing-xs); /* Ajuste de margem para parágrafos */
+  }
+
+  .burguer_menu {
+    display: none; /* Oculta o ícone em desktop */
+  }
+
+  .logo img {
+    width: 60px; /* Tamanho fixo para o logo, mais previsível */
+  }
+
+  .primary-button {
+    background-color: var(--button-secondary);
+    color: var(--button-secondary-text);
+    border: 2px solid var(--button-secondary-text);
+  }
+
+  .primary-button:hover {
+    background-color: var(--button-primary-hover);
+    border-color: var(--button-primary-hover); /* Mantém a borda da mesma cor */
+    transform: translateY(-2px);
+  }
+
+  /* Estilo para o botão secundário */
+  .secondary-button {
+    background-color: var(--button-primary);
+    color: white;
+    border: 2px solid var(--button-primary);
+  }
+
+  .secondary-button:hover {
+    background-color: var(--button-secondary-hover);
+    color: var(
+      --button-primary
+    ); /* Muda a cor do texto para o primário ao passar o mouse */
+    transform: translateY(-2px);
+  }
 }
