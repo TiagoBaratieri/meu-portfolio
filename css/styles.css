@@ -33,7 +33,6 @@
 /* --- Reset Básico para Consistência entre Navegadores --- */
 /* Isso remove margens/padding padrão e define o box-sizing para facilitar o layout */
 * {
-  
   margin: 0;
   padding: 0;
   box-sizing: border-box; /* Garante que padding e borda não aumentem o tamanho do elemento */
@@ -430,7 +429,6 @@ footer {
     ); /* Muda a cor do texto para o primário ao passar o mouse */
     transform: translateY(-2px);
   }
-  
 }
 
 /* --- NOVO BREAKPOINT (para 768px e acima) --- */
@@ -455,5 +453,27 @@ footer {
   .btn-container {
     margin: var(--spacing-sm);
   }
+}
+
+/* --- NOVO BREAKPOINT (para 992px e acima) --- */
+@media (min-width: 992px) {
+  .context-text h1 {
+    font-size: 3rem; /* Aumenta o tamanho do título para desktop */
+  }
+
+  .context-text p {
+    font-size: 1.2rem; /* Aumenta o tamanho do parágrafo para desktop */
+  }
+
+  .footer-section.copyright .tech-stack {
+    font-size: 1.8rem; /* Aumenta o tamanho da lista de tecnologias para desktop */
+    margin-top: var(--spacing-md); /* Espaço acima da lista de tecnologias */
+  }
+
+  .footer-section.copyright .tagline {
+    font-size: 1.5rem; /* Aumenta o tamanho da tagline para desktop */
+    margin-top: var(--spacing-lg); /* Espaço acima da tagline */
+  }
+
 
 }
