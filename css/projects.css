@@ -1,3 +1,130 @@
-body {
-    background-color: var(--secondary-color);
+
+
+/* Seção de Introdução da Página de Projetos */
+.page-intro {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--secondary-color); /* Fundo dourado para a seção de introdução */
+    text-align: center;
+    margin: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+}
+
+/* Seção da Grade de Projetos */
+.projects-grid-section {
+    padding: var(--spacing-xl) var(--spacing-sm);
+    background-color: var(--card-color); /* Fundo claro para a seção da grade */
+    margin: var(--spacing-sm);
+    border-radius: var(--border-radius-md);
+}
+
+/* Container que organiza os cards em grid */
+.projects-container {
+    display: grid;
+    /* Grid responsivo:
+       Por padrão, 1 coluna em mobile.
+       Em telas maiores, se ajusta para 2 ou 3 colunas. */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg); /* Espaçamento entre os cards */
+    max-width: 1200px; /* Largura máxima para a grade de projetos */
+    margin: 0 auto; /* Centraliza a grade na página */
+}
+
+/* Estilo do Card Individual do Projeto */
+.project-card {
+    background-color: white; /* Fundo branco para os cards */
+    border-radius: var(--border-radius-md); /* Bordas arredondadas */
+    box-shadow: var(--shadow-md); /* Sombra definida no global.css */
+    overflow: hidden; /* Garante que a imagem não vaze nas bordas arredondadas */
+    display: flex;
+    flex-direction: column; /* Conteúdo empilhado (imagem, texto, botões) */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+.project-card:hover {
+    transform: translateY(-8px); /* Eleva o card levemente */
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada no hover */
+}
+
+.project-image-wrapper {
+    width: 100%; /* Garante que a figura ocupe a largura total do card */
+    height: 220px; /* Altura fixa para as imagens dos projetos */
+    overflow: hidden; /* Corta a imagem se ela for maior que a altura */
+    border-top-left-radius: var(--border-radius-md);
+    border-top-right-radius: var(--border-radius-md);
+}
+
+.project-image-wrapper img {
+    width: 100%;
+    height: auto; /* Faz a imagem preencher o wrapper */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer, cortando se necessário */
+    transition: transform 0.3s ease; /* Transição para o zoom no hover */
+}
+
+.project-card:hover .project-image-wrapper img {
+    transform: scale(1.05); /* Leve zoom na imagem ao passar o mouse no card */
+}
+
+.project-content {
+    padding: var(--spacing-md);
+    flex-grow: 1; /* Permite que o conteúdo de texto ocupe o espaço restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ajuda a empurrar os botões para baixo */
+}
+
+.project-content h3 {
+    color: var(--primary-color); /* Título do projeto com sua cor primária */
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.project-content p {
+    color: var(--text-dark); /* Texto da descrição do projeto */
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1; /* Permite que o parágrafo preencha o espaço disponível */
+}
+
+/* Lista de Tags/Tecnologias */
+.project-tags {
+    list-style: none; /* Remove marcadores de lista padrão */
+    display: flex;
+    flex-wrap: wrap; /* Permite que as tags quebrem para a próxima linha */
+    gap: var(--spacing-xs); /* Espaçamento entre as tags */
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.project-tags li {
+    display: inline-block; /* Garante que os <li> se comportem como tags */
+}
+
+.tag {
+    background-color: var(--secondary-color); /* Fundo dourado para as tags */
+    color: white;
+    padding: 5px 10px; /* Um pouco mais de padding */
+    border-radius: var(--border-radius-sm);
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap; /* Evita que o texto da tag quebre */
+}
+
+/* Botões de Ação do Projeto */
+.project-actions {
+    display: flex;
+    justify-content: center; /* Centraliza os botões */
+    gap: var(--spacing-sm); /* Espaçamento entre os botões */
+    margin-top: var(--spacing-md);
+    flex-wrap: wrap; /* Permite que os botões quebrem em telas menores */
+}
+
+/* Reutiliza os estilos dos botões que já existem no seu CSS global */
+.project-actions .button {
+    min-width: 130px; /* Ajusta a largura mínima dos botões para o card */
+    padding: 10px 15px; /* Ajusta o padding */
+    font-size: 0.9rem;
+}
+
+.project-actions .button i {
+    margin-right: 8px; /* Espaçamento entre o ícone e o texto do botão */
 }

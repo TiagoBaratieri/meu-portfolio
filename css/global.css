@@ -10,6 +10,7 @@
     --text-light: #eee;
     --background-light: #f4f4f4;
     --background-dark: #696969;
+    --card-color: #96d7eb; /* Azul claro para cards */
     --border-color-light: rgba(255, 255, 255, 0.1);
 
     /* Botões */
@@ -23,17 +24,28 @@
     --spacing-xs: 5px;
     --spacing-sm: 10px;
     --spacing-md: 20px;
-    --spacing-lg: 30px; /* Ajustado para um espaçamento maior */
-    --spacing-xl: 50px; /* Ajustado para um espaçamento maior */
+    --spacing-lg: 30px; 
+    --spacing-xl: 50px; 
 
     /* Bordas */
     --border-radius-sm: 5px;
     --border-radius-md: 8px;
-    --border-radius-lg: 50%; /* Para imagens redondas */
+    --border-radius-lg: 50%; 
 
     /* Sombras */
     --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
 /* 3. Reset Básico (Universal) */
