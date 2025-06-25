@@ -1,0 +1,88 @@
+/* --- Seção de Introdução (#intro) --- */
+#intro {
+  max-width: 100vw; /* Garante que o fundo ocupe toda a largura da viewport */
+  background-color: var(--secondary-color);
+  border-radius: var(
+    --border-radius-sm
+  ); /* Bordas arredondadas, usando variável */
+  margin: 0.5rem; /* Margem ao redor do intro */
+}
+
+/* Estilo para o container principal da seção */
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza os itens horizontalmente */
+  justify-content: center; /* Centraliza verticalmente (se necessário) */
+  gap: var(--spacing-md); /* Espaço entre a imagem e o texto/título */
+  text-align: center;
+}
+
+.context-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.context-text h1 {
+  text-align: center;
+  font-size: 2rem; /* Tamanho para mobile */
+}
+
+.context-text p {
+  text-align: center;
+}
+
+.tech-icon {
+  width: 1em; /* Tamanho relativo ao tamanho da fonte do texto */
+  height: 1em;
+  vertical-align: middle; /* Alinha o ícone verticalmente */
+  margin-right: var(--spacing-xs);
+}
+
+.context-text p a img {
+  width: 1.1em; /* Ajusta o tamanho da imagem para ficar proporcional ao texto do link */
+  height: 1.1em;
+}
+
+/* Estilo para a imagem de perfil */
+.profile-image {
+  display: flex;
+  margin-top: var(--spacing-lg);
+  max-width: 180px; /* Tamanho ligeiramente menor, mais proporcional */
+  height: auto;
+  border-radius: var(--border-radius-lg); /* Imagem redonda */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra um pouco mais forte */
+  object-fit: cover;
+  border: 4px solid var(--primary-color); /* Uma borda colorida sutil */
+}
+
+/* --- NOVO BREAKPOINT (para 768px e acima) --- */
+@media (min-width: 768px) {
+  .nav-links li {
+    margin: 0 var(--spacing-md);
+  }
+
+  .nav-links a {
+    font-size: 1.3rem;
+  }
+
+  .intro-content {
+    flex-direction: row; /* Alinha imagem e texto lado a lado */
+    height: 60vh; /* Ocupa 60% da altura da viewport */
+  }
+
+  .image-content {
+    margin: var(--spacing-sm);
+  }
+
+  .btn-container {
+    margin: var(--spacing-sm);
+  }
+}
+
+
+

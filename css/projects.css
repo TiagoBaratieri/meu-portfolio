@@ -1,20 +1,20 @@
 /* Seção de Introdução da Página de Projetos */
 .page-intro {
   padding: var(--spacing-xl) var(--spacing-md);
-  background-color: var(
-    --secondary-color
-  ); /* Fundo dourado para a seção de introdução */
+  background-color: var(--secondary-color); /* Fundo temático (claro/escuro) */
   text-align: center;
   margin: var(--spacing-sm);
   border-radius: var(--border-radius-md);
+  transition: background-color 0.3s ease; /* Transição para o modo escuro */
 }
 
 /* Seção da Grade de Projetos */
 .projects-grid-section {
   padding: var(--spacing-xl) var(--spacing-sm);
-  background-color: var(--card-color); /* Fundo claro para a seção da grade */
+  background-color: var(--background-page);
   margin: var(--spacing-sm);
   border-radius: var(--border-radius-md);
+  transition: background-color 0.3s ease; /* Transição para o modo escuro */
 }
 
 /* Container que organiza os cards em grid */
@@ -31,13 +31,38 @@
 
 /* Estilo do Card Individual do Projeto */
 .project-card {
-  background-color: white; /* Fundo branco para os cards */
+  background-color: var(--background-section-light);
   border-radius: var(--border-radius-md); /* Bordas arredondadas */
   box-shadow: var(--shadow-md); /* Sombra definida no global.css */
   overflow: hidden; /* Garante que a imagem não vaze nas bordas arredondadas */
   display: flex;
   flex-direction: column; /* Conteúdo empilhado (imagem, texto, botões) */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito suave ao passar o mouse */
+  transition: background-color 0.3s ease; /* Transição para o modo escuro */
+  border: 1px solid var(--card-border-color); /* ADICIONE SE QUISER UMA BORDA QUE MUDE TAMBÉM */
+}
+
+/* Certifique-se de que outros elementos dentro do card, como h3 ou p, também usam variáveis de texto */
+.project-content h3 {
+  color: var(
+    --primary-color
+  ); /* Título do projeto usa a primary-color (que muda) */
+  /* ... */
+}
+
+.project-content p {
+  color: var(
+    --text-dark
+  ); /* Texto da descrição do projeto usa a text-dark (que muda) */
+  /* ... */
+}
+
+.tag {
+  background-color: var(
+    --secondary-color
+  ); /* Fundo da tag usa a secondary-color (que muda) */
+  color: var(--text-light); /* Cor do texto da tag usa text-light (que muda) */
+  /* ... */
 }
 
 .project-card:hover {
@@ -110,29 +135,32 @@
   white-space: nowrap; /* Evita que o texto da tag quebre */
 }
 
-/* Botões de Ação do Projeto */
+/* Botões de Ação do Projeto (reutilizando estilos de global.css) */
 .project-actions {
   display: flex;
-  justify-content: center; /* Centraliza os botões */
-  gap: var(--spacing-sm); /* Espaçamento entre os botões */
+  justify-content: center;
+  gap: var(--spacing-sm);
   margin-top: var(--spacing-md);
-  flex-wrap: wrap; /* Permite que os botões quebrem em telas menores */
+  flex-wrap: wrap;
 }
 
-/* Reutiliza os estilos dos botões que já existem no seu CSS global */
 .project-actions .button {
-  min-width: 130px; /* Ajusta a largura mínima dos botões para o card */
-  padding: 10px 15px; /* Ajusta o padding */
+  min-width: 130px;
+  padding: 10px 15px;
   font-size: 0.9rem;
 }
 
 .project-actions .button i {
-  margin-right: 8px; /* Espaçamento entre o ícone e o texto do botão */
+  margin-right: 8px;
 }
 
 /* --- NOVO BREAKPOINT (para 768px e acima) --- */
 @media (min-width: 768px) {
-  p {
+  .nav-links li {
+    margin: 0 var(--spacing-md);
+  }
+
+  .nav-links a {
     font-size: 1.3rem;
   }
 }

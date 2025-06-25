@@ -1,97 +1,464 @@
 /* 1. Importações e Fontes */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
 
-/* 2. Variáveis CSS (Definidas no :root para acesso global) */
+/*  Variáveis CSS (Definidas no :root para acesso global - TEMA CLARO PADRÃO) */
 :root {
-    /* Cores */
-    --primary-color: #1e90ff; /* Azul vibrante */
-    --secondary-color: #daa520; /* Dourado */
-    --text-dark: #333;
-    --text-light: #eee;
-    --background-light: #f4f4f4;
-    --background-dark: #696969;
-    --card-color: #96d7eb; /* Azul claro para cards */
-    --border-color-light: rgba(255, 255, 255, 0.1);
+  /* Cores */
+  --primary-color: #1e90ff; /* Azul vibrante (header, links) */
+  --secondary-color: #daa520; /* Dourado (intro, tags) */
+  --text-dark: #333; /* Cor principal de texto (preto quase) */
+  --text-light: #eee; /* Cor de texto claro (para fundos escuros, ex: header, footer) */
+  --background-page: #f4f4f4; /* Fundo geral da página (claro) */
+  --background-section-light: white; /* Fundo de seções/cards claros */
+  --background-section-dark: #696969; /* Fundo do footer no modo claro */
+  --card-border-color: rgba(0, 0, 0, 0.1); /* Cor da borda do card */
 
-    /* Botões */
-    --button-primary: #007bff;
-    --button-primary-hover: #0056b3;
-    --button-secondary: transparent;
-    --button-secondary-text: #007bff;
-    --button-secondary-hover: #f0f0f0;
+  /* Botões */
+  --button-primary-bg: #007bff;
+  --button-primary-color: white;
+  --button-primary-hover-bg: #0056b3;
+  --button-secondary-bg: transparent;
+  --button-secondary-color: #007bff;
+  --button-secondary-hover-bg: #f0f0f0;
 
-    /* Espaçamento */
-    --spacing-xs: 5px;
-    --spacing-sm: 10px;
-    --spacing-md: 20px;
-    --spacing-lg: 30px; 
-    --spacing-xl: 50px; 
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 30px;
+  --spacing-xl: 50px;
+  --border-radius-sm: 5px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 50%;
 
-    /* Bordas */
-    --border-radius-sm: 5px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 50%; 
+  /* Sombras */
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.2);
 
-    /* Sombras */
-    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
+  /* Toggle Modo Escuro */
+  --toggle-icon-color: #f39c12; /* Cor padrão para o ícone do toggle (sol/lua) */
 }
 
+/* Variáveis do TEMA ESCURO (Sobrescrevendo as do :root quando body.dark-mode) */
+body.dark-mode {
+  --primary-color: #4caf50; /* Um verde como destaque no dark mode */
+  --secondary-color: #ffa07a; /* Um tom de laranja/salmão para o dark mode */
+  --text-dark: #f0f0f0; /* Texto principal claro no dark mode */
+  --text-light: #333; /* Texto escuro para elementos que precisam contrastar com o claro do dark mode */
+  --background-page: #1a1a1a; /* Fundo geral da página (escuro) */
+  --background-section-light: #2b2b2b; /* Fundo de seções/cards escuros */
+  --background-section-dark: #696969; /* Fundo do footer no modo escuro */
+  --card-border-color: rgba(
+    255,
+    255,
+    255,
+    0.2
+  ); /* Cor da borda do card no dark mode */
+
+  /* Botões (ajustados para o dark mode) */
+  --button-primary-bg: var(--primary-color);
+  --button-primary-color: white;
+  --button-primary-hover-bg: #3e8e41;
+  --button-secondary-bg: transparent;
+  --button-secondary-color: var(--primary-color);
+  --button-secondary-hover-bg: #444444;
+
+  /* Sombras (ajustadas para o dark mode para maior contraste) */
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.4);
+
+  /* Toggle Modo Escuro */
+  --toggle-icon-color: #f1c40f; /* Cor do ícone do toggle no dark mode (sol) */
+}
+
+/* Exemplo para o botão do toggle e ícones */
+#darkModeToggle {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  color: var(--toggle-icon-color); /* Usa a variável específica do toggle */
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Esconder/mostrar os ícones */
+#darkModeToggle .fa-sun {
+  display: none;
+}
+body.dark-mode #darkModeToggle .fa-moon {
+  display: none;
+}
+body.dark-mode #darkModeToggle .fa-sun {
+  display: inline-block;
+}
+
+/* --- Header --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+  padding: var(--spacing-sm) var(--spacing-md);
+  width: 100%;
+  box-shadow: var(--shadow-sm); /* Usando variável de sombra global */
+  position: relative;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Adicionei transição para o dark mode */
+}
+
+.logo img {
+  width: 40px; /* Tamanho fixo para o logo, mais previsível */
+  height: auto; /* Mantém a proporção */
+  display: block; /* Remove espaço em branco abaixo da imagem */
+}
+
+/* --- Estilos do Menu Hambúrguer (Ícone) para 320px e acima (Mobile) --- */
+.burguer_menu {
+  width: 20px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.burguer_menu div {
+  width: 100%;
+  height: 2.5px; /* Linhas mais finas */
+  background-color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+/* --- Navegação (Menu Links) - ESCONDIDA em Mobile (0px a 575px) --- */
+.nav-links {
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  background-color: var(--primary-color-transparent);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-md) 0;
+  box-shadow: var(--shadow-sm); /* Sombra usa variável global */
+  list-style-type: none;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease,
+    box-shadow 0.3s ease; /* Adicionei transições */
+  z-index: 10;
+}
+
+.nav-links li {
+  margin: var(--spacing-xs) 0;
+}
+
+.nav-links a {
+  color: var(--text-light); /* Cor do texto usa variável global */
+  font-weight: 500;
+  font-size: 1.05rem;
+  position: relative;
+  display: block;
+  transition: color 0.3s ease; /* Adicionei transição */
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--text-light);
+  transition: width 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 80%;
+}
+
+.burguer_menu.active .line1 {
+  transform: translateY(11px) rotate(45deg);
+}
+.burguer_menu.active .line2 {
+  opacity: 0;
+}
+.burguer_menu.active .line3 {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+.nav-links.active {
+  display: flex;
+  transform: translateY(0);
+  background-color: var(--primary-color-transparent);
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+  left: auto;
+  right: var(--spacing-sm);
+}
+
+/* Botões */
+
+.btn-container {
+  display: flex;
+  gap: var(--spacing-md); /* Espaçamento entre os botões */
+  margin-top: var(--spacing-lg); /* Margem acima dos botões */
+  flex-wrap: wrap; /* Permite que os botões se movam para a próxima linha em telas menores */
+  justify-content: center; /* Centraliza os botões */
+  margin-bottom: var(--spacing-lg); /* Espaçamento abaixo dos botões */
+}
+
+/* Estilos básicos para todos os botões */
+.button {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: var(--border-radius-md);
+  font-weight: bold;
+  font-size: 1.05rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease,
+    border-color 0.3s ease;
+  min-width: 160px;
+  text-align: center;
+}
+
+.primary-button {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-color);
+  border: 2px solid var(--button-primary-bg);
+}
+.primary-button:hover {
+  background-color: var(--button-primary-hover-bg);
+  border-color: var(--button-primary-hover-bg);
+}
+.secondary-button {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-color);
+  border: 2px solid var(--button-secondary-color);
+}
+.secondary-button:hover {
+  background-color: var(--button-secondary-hover-bg);
+  color: var(--button-secondary-color);
+}
+
+/* Footer */
+footer {
+  background-color: var(--background-section-dark);
+  color: var(--text-light);
+  padding: var(--spacing-lg) var(--spacing-md);
+  text-align: center;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  width: 100%;
+  margin-top: var(--spacing-xl);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-section.copyright {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--background-section-light); /* Usando uma variável mais genérica para bordas */
+  color: var(--text-light);
+}
+
+/* Estilo para a tagline (frase de impacto) */
+.footer-section.copyright .tagline {
+  font-style: italic;
+  font-size: 1.1rem; /* Levemente maior */
+  color: var(
+    --secondary-color
+  ); /* Usa a cor do intro para destaque, ou uma nova cor de acento */
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Estilo para a lista de tecnologias */
+.footer-section.copyright .tech-stack {
+  font-size: 0.85rem;
+  color: var(
+    --text-light
+  ); /* Usa a cor de texto claro, ou uma variação mais suave */
+}
+
+.ter-section.copyright p {
+  margin-bottom: var(--spacing-xs);
+  color: var(
+    --text-light
+  ); /* Garante que os parágrafos internos usem a cor clara */
+}
 .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
-/* 3. Reset Básico (Universal) */
+/* Reset Básico (Universal) */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* 4. Estilos Gerais do Corpo e Tipografia */
+/* Estilos Gerais do Corpo e Tipografia (USANDO AS VARIÁVEIS) */
 body {
-    font-family: "Roboto", sans-serif;
-    line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--background-light);
-    overflow-x: hidden;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark); /* Principal cor de texto */
+  background-color: var(--background-page); /* Fundo da página */
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave */
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Roboto", sans-serif; /* Consistência com a fonte principal */
-    color: var(--text-dark);
-    margin-bottom: var(--spacing-sm);
-    line-height: 1.2;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif; /* Consistência com a fonte principal */
+  color: var(--text-dark);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.2;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.75rem; }
-h4 { font-size: 1.5rem; }
-h5 { font-size: 1.25rem; }
-h6 { font-size: 1rem; }
-
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.75rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+h5 {
+  font-size: 1.25rem;
+}
+h6 {
+  font-size: 1rem;
+}
 
 p {
-    margin-bottom: var(--spacing-md);
-    font-size: 1rem;
-    color: var(--text-dark);
+  margin-bottom: var(--spacing-md);
+  font-size: 1rem;
+  color: var(--text-dark);
 }
 
 /* Links */
 a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--button-primary-hover);
+  color: var(--button-primary-hover);
+}
+
+/* --- Media Queries Globais (APENAS PARA COMPONENTES DO GLOBAL.CSS) --- */
+
+@media (min-width: 576px) {
+  .nav-links {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    width: auto;
+    padding: 0;
+    box-shadow: none;
+    transform: translateY(0);
+    transition: none;
+    background-color: transparent; /* Fundo transparente para o menu em desktop */
+  }
+
+  .nav-links li {
+    margin: 0 var(--spacing-sm);
+    font-size: 1rem; /* Ajuste para desktop, estava 0.714rem */
+    width: auto;
+    text-align: left;
+  }
+
+  .nav-links a {
+    font-size: 1rem; /* Ajuste para desktop, estava 0.714rem */
+    text-align: left;
+    color: var(--text-light); /* Links no header desktop continuam claros */
+  }
+
+  .nav-links a::after {
+    left: 0;
+    transform: translateX(0);
+    background-color: var(--text-light);
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  .burguer_menu {
+    display: none;
+  }
+
+  .logo img {
+    width: 60px;
+  }
+}
+
+/* Ajustes para Telas Maiores (Desktops - 992px e acima) */
+@media (min-width: 992px) {
+  .projects-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+    gap: var(--spacing-xl); /* Mantém ou aumenta o espaçamento */
+  }
+
+  .project-card {
+    flex-direction: column;
+    align-items: stretch; /* Estica para preencher a altura da linha do grid */
+  }
+
+  .project-image-wrapper {
+    width: 100%; /* Imagem ocupa a largura total do card novamente */
+    height: 250px; /* Altura fixa maior para miniaturas em grade de 3 colunas */
+    border-bottom-left-radius: 0; /* Remove o arredondamento inferior esquerdo */
+    border-top-right-radius: var(
+      --border-radius-md
+    ); /* Mantém o superior direito */
+  }
+
+  .project-content {
+    width: 100%; /* Conteúdo ocupa a largura total do card */
+    padding: var(--spacing-md); /* Volta ao padding padrão do card */
+  }
+
+  /* Remove a inversão de ordem para a grade de 3 colunas (volta ao padrão imagem-topo) */
+  .projects-container article:nth-child(even) {
+    flex-direction: column;
+  }
+  .projects-container article:nth-child(even) .project-image-wrapper {
+    border-top-left-radius: var(
+      --border-radius-md
+    ); /* Restaura arredondamento superior esquerdo */
+    border-top-right-radius: var(
+      --border-radius-md
+    ); /* Restaura arredondamento superior direito */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .projects-container article:nth-child(even) .project-content {
+    padding-left: var(--spacing-md); /* Restaura padding padrão */
+    padding-right: var(--spacing-md);
+  }
 }
