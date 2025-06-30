@@ -62,14 +62,8 @@
 
 /* --- NOVO BREAKPOINT (para 768px e acima) --- */
 @media (min-width: 768px) {
-  .nav-links li {
-    margin: 0 var(--spacing-md);
-  }
-
-  .nav-links a {
-    font-size: 1.3rem;
-  }
-
+ 
+  
   .intro-content {
     flex-direction: row; /* Alinha imagem e texto lado a lado */
     height: 60vh; /* Ocupa 60% da altura da viewport */

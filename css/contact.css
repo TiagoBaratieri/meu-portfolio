@@ -1,0 +1,209 @@
+/* --- contact.css --- */
+
+.contact-section {
+  padding: var(--spacing-xl) var(--spacing-sm);
+  background-color: var(
+    --background-page
+  ); /* Fundo da página, muda com o tema */
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.contact-intro {
+  padding: var(--spacing-lg) var(--spacing-sm);
+  background-color: var(--secondary-color); /* Fundo temático (claro/escuro) */
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  border-radius: var(--border-radius-md);
+  transition: background-color 0.3s ease; /* Transição para o modo escuro */
+}
+
+.contact-intro h1 {
+  font-size: 2.5rem;
+  color: var(--text-dark); /* Cor principal do texto, muda com o tema */
+  margin-bottom: var(--spacing-md);
+  transition: color 0.3s ease;
+}
+
+.contact-intro p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a {
+  color: var(--text-dark);
+}
+
+.contact-content-wrapper {
+  display: flex;
+  flex-direction: column; /* Em mobile, blocos empilhados */
+  gap: var(--spacing-xl); /* Espaçamento entre os blocos de contato */
+  max-width: 900px;
+  margin: 0 auto var(--spacing-xl) auto;
+}
+
+.contact-info-block,
+.contact-form-block {
+  background-color: var(
+    --background-section-light
+  ); /* Fundo claro para os blocos, muda com o tema */
+  padding: 0 var(--spacing-md) var(--spacing-md) 19px; /* Espaçamento interno */
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md); /* Sombra temática */
+  text-align: left; /* Alinha o texto dentro dos blocos */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-info-block h2,
+.contact-form-block h2 {
+  color: var(
+    --primary-color
+  ); /* Títulos dos blocos usam a cor primária, muda com o tema */
+  font-size: 1.8rem;
+  margin: var(--spacing-sm) var(--spacing-lg);
+  text-align: center; /* Centraliza títulos dos blocos */
+  transition: color 0.3s ease;
+}
+
+.contact-list li {
+  list-style: none;
+  margin-bottom: var(---spacing-sm);
+}
+
+.contact-list li i {
+  margin: var(--spacing-xs); /* Espaçamento entre o ícone e o texto */
+}
+
+.contact-list li:last-child {
+  margin-bottom: 0; /* Remove margem do último item */
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  color: var(--text-dark); /* Cor do texto do link, muda com o tema */
+  font-size: 1.1rem;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-link i {
+  font-size: 1.5rem;
+  margin-right: var(--spacing-md);
+  color: var(--primary-color); /* Ícone usa cor primária */
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  background-color: var(
+    --button-secondary-hover-bg
+  ); /* Fundo no hover, muda com o tema */
+  color: var(--primary-color); /* Texto no hover, muda com o tema */
+}
+
+/* Estilos para o formulário */
+.contact-form .form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: var(--spacing-sm);
+  border: 1px solid var(--card-border-color); /* Borda temática */
+  border-radius: var(--border-radius-sm);
+  background-color: var(
+    --background-page
+  ); /* Fundo dos inputs, igual ao fundo da página */
+  color: var(--text-dark); /* Texto digitado, temático */
+  font-size: 1rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--text-dark); /* Placeholder temático */
+  opacity: 0.7;
+  transition: color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color); /* Borda temática no foco */
+  box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.2); /* Sombra temática no foco */
+}
+
+/* Estilo para a seção de download do currículo */
+.cv-download-section {
+  background-color: var(
+    --secondary-color
+  ); /* Fundo secundário, muda com o tema */
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md); /* Sombra temática */
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cv-download-section h2 {
+  color: var(--text-light); /* Título claro, muda com o tema */
+  font-size: 2rem;
+  margin-bottom: var(--spacing-md);
+  transition: color 0.3s ease;
+}
+
+.cv-download-section p {
+  color: var(--text-light); /* Parágrafo claro, muda com o tema */
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-lg) auto;
+  transition: color 0.3s ease;
+}
+
+.error-message {
+  color: #d9534f; /* Vermelho vibrante */
+  font-size: 0.85em;
+  margin-top: 5px;
+  display: block;
+}
+
+input.is-invalid,
+textarea.is-invalid {
+  border: 1px solid #d9534f;
+  box-shadow: 0 0 0 0.2rem rgba(217, 83, 79, 0.25);
+}
+
+/* --- Media Queries ESPECÍFICAS DA PÁGINA DE CONTATO --- */
+
+@media (min-width: 768px) {
+  .contact-content-wrapper {
+    flex-direction: row; /* Blocos lado a lado em telas maiores */
+    justify-content: center;
+    align-items: flex-start; /* Alinha no topo */
+  }
+
+  .contact-info-block,
+  .contact-form-block {
+    flex: 1; /* Ocupa espaço igual */
+    min-width: 300px; /* Largura mínima para cada bloco */
+    max-width: 45%; /* Largura máxima para dois blocos lado a lado */
+  }
+
+  .contact-info-block {
+    margin-right: var(--spacing-lg); /* Espaço entre os blocos */
+  }
+}
+
+@media (min-width: 992px) {
+  .contact-content-wrapper {
+    gap: var(--spacing-xl); /* Mais espaçamento em telas maiores */
+  }
+}

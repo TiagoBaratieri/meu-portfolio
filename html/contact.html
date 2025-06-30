@@ -1,11 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato - Tiago Baratieri</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/contact.css" />
+  </head>
+  <body>
+    <header id="main-header"></header>
+
+    <main>
+      <section class="contact-section">
+        <div class="contact-intro">
+          <h1>Entre em Contato.</h1>
+          <p>
+            Estou sempre aberto a novas oportunidades e colaborações. Sinta-se à
+            vontade para me enviar uma mensagem ou se conectar pelas minhas
+            redes sociais.
+          </p>
+        </div>
+
+        <div class="contact-content-wrapper">
+          <div class="contact-info-block">
+            <h2>Me Encontre Online.</h2>
+            <ul class="contact-list">
+              <li>
+                <a
+                  href="mailto:tiagobaratieri97@gmail.com"
+                  class="contact-link"
+                  aria-label="Enviar e-mail"
+                >
+                  <i class="fas fa-envelope"></i>
+                  <span>tiagobaratieri97@gmail.com</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/tiago-lemos-baratieri-a95b0a206/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-link"
+                  aria-label="Visitar perfil do LinkedIn"
+                >
+                  <i class="fab fa-linkedin"></i>
+                  <span>LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/TiagoBaratieri"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="contact-link"
+                  aria-label="Visitar perfil do GitHub"
+                >
+                  <i class="fab fa-github"></i>
+                  <span>GitHub</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="contact-form-block">
+            <h2>Envie uma Mensagem</h2>
+            <form action="#" method="POST" class="contact-form" id="contactForm">
+              <div class="form-group">
+                <label for="name" class="visually-hidden">Seu Nome:</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Seu Nome"
+                  required
+                />
+                <span class="erro-message" id="name-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="visually-hidden">Seu E-mail:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="_replyto"
+                  placeholder="Seu E-mail"
+                  required
+                />
+                <span class="erro-message" id="email-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="message" class="visually-hidden"
+                  >Sua Mensagem:</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  placeholder="Sua Mensagem"
+                  required
+                >
+              </textarea
+                >
+                <span class="error-message" id="message-error"></span>
+              </div>
+              <button type="submit" class="button primary-button" id="submitButton">
+                Enviar Mensagem
+              </button>
+               <div id="formStatus">
+
+               </div> 
+              </form>
+           </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="cv-download-section">
+          <h2>Baixe Meu Currículo</h2>
+          <p>
+            Para mais detalhes sobre minha experiência e formação, você pode
+            fazer o download do meu currículo.
+          </p>
+          <a
+            href="/docs/TiagoBaratieri_Curriculo.pdf"
+            download="TiagoBaratieri_Curriculo.pdf"
+            class="button secondary-button download-button"
+          >
+            <i class="fas fa-download"></i>
+            Download Currículo
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <script src="/js/loadComponents.js" defer></script>
+    <script src="/js/darkMode.js" defer></script>
+    <script src="/js/validForm.js" defer></script>
+  </body>
 </html>

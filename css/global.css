@@ -416,49 +416,13 @@ a:hover {
     width: 60px;
   }
 }
-
-/* Ajustes para Telas Maiores (Desktops - 992px e acima) */
-@media (min-width: 992px) {
-  .projects-container {
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
-    gap: var(--spacing-xl); /* Mantém ou aumenta o espaçamento */
+/* --- NOVO BREAKPOINT CLOBAL (para 768px e acima) --- */
+@media (min-width: 768px) {
+  .nav-links li {
+    margin: 0 var(--spacing-md);
   }
 
-  .project-card {
-    flex-direction: column;
-    align-items: stretch; /* Estica para preencher a altura da linha do grid */
-  }
-
-  .project-image-wrapper {
-    width: 100%; /* Imagem ocupa a largura total do card novamente */
-    height: 250px; /* Altura fixa maior para miniaturas em grade de 3 colunas */
-    border-bottom-left-radius: 0; /* Remove o arredondamento inferior esquerdo */
-    border-top-right-radius: var(
-      --border-radius-md
-    ); /* Mantém o superior direito */
-  }
-
-  .project-content {
-    width: 100%; /* Conteúdo ocupa a largura total do card */
-    padding: var(--spacing-md); /* Volta ao padding padrão do card */
-  }
-
-  /* Remove a inversão de ordem para a grade de 3 colunas (volta ao padrão imagem-topo) */
-  .projects-container article:nth-child(even) {
-    flex-direction: column;
-  }
-  .projects-container article:nth-child(even) .project-image-wrapper {
-    border-top-left-radius: var(
-      --border-radius-md
-    ); /* Restaura arredondamento superior esquerdo */
-    border-top-right-radius: var(
-      --border-radius-md
-    ); /* Restaura arredondamento superior direito */
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-  .projects-container article:nth-child(even) .project-content {
-    padding-left: var(--spacing-md); /* Restaura padding padrão */
-    padding-right: var(--spacing-md);
+  .nav-links a {
+    font-size: 1.3rem;
   }
 }
