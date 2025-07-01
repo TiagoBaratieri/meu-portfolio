@@ -1,11 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre Mim - Tiago Baratieri</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/about.css" />
 </head>
 <body>
-    
-</body>
+    <header id="main-header"></header> <main>
+        <section id="about-intro" class="section-padding">
+            <div class="about-flex-container">
+                <div class="about-image-wrapper">
+                    <img
+                        src="/img/perfil.jpg" alt="Tiago Baratieri"
+                        class="profile-image"
+                    />
+                </div>
+                <div class="about-text-content">
+                    <h1>Sobre Mim</h1>
+                    <p>
+                        Olá! Eu sou **Tiago Baratieri**, Desenvolvedor Júnior em transição de
+                        carreira, buscando minha primeira oportunidade na área de
+                        desenvolvimento de software. Minha paixão é transformar ideias em código
+                        funcional e experiências digitais intuitivas.
+                    </p>
+                    <p>
+                        Com foco em desenvolvimento Backend com Java e Spring Boot,
+                        estou sempre em busca de aprender e aplicar as melhores práticas
+                        para criar soluções robustas e eficientes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <h2>Minha Jornada</h2>
+                <p>
+                    Minha paixão por tecnologia me levou a transitar para o desenvolvimento de software.
+                    Com uma base sólida em programação orientada a objetos e persistência de dados,
+                    estou construindo meu caminho para me tornar um desenvolvedor full-stack.
+                    Cada desafio é uma oportunidade para aprender e inovar.
+                </p>
+                <p>
+                    Acredito em um aprendizado contínuo e na importância de colaborar em equipes,
+                    compartilhando conhecimento para alcançar os melhores resultados.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <h2>Formação Acadêmica</h2>
+                <div class="education-grid">
+                    <div class="education-item card">
+                        <h3>Análise e Desenvolvimento de Sistemas</h3>
+                        <p class="institution">Universidade Unicesumar</p>
+                        <p class="period">2019 - 2021 (Concluído)</p>
+                    </div>
+                    <div class="education-item card">
+                        <h3>Engenharia de Software</h3>
+                        <p class="institution">Universidade Unicesumar</p>
+                        <p class="period">2025 - 2026 (Em curso)</p>
+                    </div>
+                </div>
+                <p class="additional-info">
+                    Minha jornada acadêmica me proporciona uma base teórica e prática em diversas áreas,
+                    desde estrutura de dados e algoritmos até metodologias ágeis e arquitetura de software.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills" class="section-padding">
+            <div class="container">
+                <h2>Minhas Habilidades</h2>
+                <ul class="skills-list">
+                    <li><i class="fab fa-java"></i> Java</li>
+                    <li><i class="fas fa-leaf"></i> Spring Boot</li>
+                    <li><i class="fas fa-database"></i> MySQL</li>
+                    <li><i class="fab fa-html5"></i> HTML5</li>
+                    <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                    <li><i class="fab fa-js-square"></i> JavaScript</li>
+                    <li><i class="fab fa-git-alt"></i> Git & GitHub</li>
+                    <li><i class="fas fa-project-diagram"></i> Metodologias Ágeis</li>
+                    <li><i class="fas fa-code"></i> APIs RESTful</li>
+                    </ul>
+            </div>
+        </section>
+
+        <section id="call-to-action" class="section-padding">
+            <div class="container">
+                <h2>Vamos Conectar?</h2>
+                <p>
+                    Estou ansioso para colaborar em projetos inovadores e fazer parte de uma equipe dinâmica.
+                    Se você busca um desenvolvedor dedicado e pronto para aprender, entre em contato!
+                </p>
+                <div class="btn-container">
+                    <a href="contact.html" class="button primary-button">Fale Comigo</a>
+                    <a href="index.html" class="button secondary-button">Veja Meu Portfólio</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="main-footer"></footer> <script src="/js/loadComponents.js" defer></script>
+    <script src="/js/darkMode.js" defer></script>
+    </body>
 </html>

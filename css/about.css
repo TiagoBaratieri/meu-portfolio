@@ -1,0 +1,195 @@
+/* css/about.css */
+
+.section-padding {
+  padding: var(--spacing-xl) 0; /* Padding maior para as seções */
+}
+
+/* --- Seção de Introdução e Foto --- */
+#about-intro {
+  background-color: var(--background-section-dark);
+  text-align: center;
+  border-radius: var(--border-radius-md); /* Bordas arredondadas */
+  margin: var(--spacing-sm);
+}
+
+.about-flex-container {
+  display: flex;
+  flex-direction: column; /* Imagem em cima, texto embaixo no mobile */
+  align-items: center; /* Centraliza itens horizontalmente */
+  gap: var(--spacing-xl); /* Espaçamento entre imagem e texto */
+}
+
+.about-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-image {
+  display: block;
+  margin: 0;
+  max-width: 200px;
+  height: 200px; /* Garante que a imagem seja quadrada */
+  object-fit: cover; /* Ajusta a imagem para cobrir a área sem distorcer */
+  border-radius: var(--border-radius-sm); /* Bordas levemente arredondadas */
+  box-shadow: var(--shadow-md); /* Sombra definida no global.css */
+  border: 4px solid var(--secondary-color); /* Borda com cor secundária */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: translateY(-5px); /* Efeito de elevação */
+  box-shadow: var(--shadow-hover); /* Sombra mais intensa no hover */
+  border-color: var(--primary-color); /* Mudança de cor da borda no hover */
+}
+
+.about-text-content {
+  text-align: center; /* Texto centralizado no mobile */
+  padding: 0 var(--spacing-md); /* Padding lateral para texto */
+}
+
+.container {
+  background-color: var(--background-section-dark); 
+  padding: var(--spacing-sm); 
+  border-radius: var(--border-radius-sm);
+  margin: var(--spacing-sm);
+}
+
+/* --- Seções de Conteúdo Geral --- */
+/* Ajuste de espaçamento e alinhamento para h2 globais */
+h2 {
+  font-size: 2.2em;
+  color: var(--text-dark);
+  margin-bottom: var(
+    --spacing-md
+  ); /* Mais espaço abaixo dos títulos de seção */
+  text-align: center;
+}
+
+/* --- Seção de Formação Acadêmica --- */
+.education-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Um item por linha no mobile */
+  gap: var(--spacing-md); /* Espaçamento entre os itens */
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.education-item.card {
+  background-color: var(--background-section-light);
+  border: 1px solid var(--card-border-color);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  text-align: left; /* Alinha o texto dentro do card à esquerda */
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-item.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.education-item h3 {
+  font-size: 1.4em;
+  color: var(--primary-color);
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+}
+
+.education-item .institution,
+.education-item .period {
+  font-size: 0.95em;
+  color: var(--light-text-color);
+  margin-bottom: var(--spacing-xs);
+}
+
+.education-item .period {
+  font-weight: bold;
+}
+
+.additional-info {
+  margin-top: var(--spacing-lg);
+  font-style: italic;
+  color: var(--light-text-color);
+  max-width: 800px; /* Limita a largura para legibilidade */
+  margin-left: auto; /* Centraliza */
+  margin-right: auto; /* Centraliza */
+}
+
+/* --- Seção de Habilidades --- */
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--spacing-md);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza as tags de habilidade */
+  gap: var(--spacing-sm); /* Espaçamento entre as tags */
+}
+
+.skills-list li {
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  padding: 8px 15px;
+  border-radius: 20px; /* Tags arredondadas */
+  font-size: 0.95em;
+  font-weight: bold;
+  white-space: nowrap; /* Evita que o texto quebre */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.skills-list li:hover {
+  background-color: var(--button-primary-hover-bg);
+  transform: translateY(-2px);
+}
+
+.skills-list li i {
+  margin-right: 5px; /* Espaço entre ícone e texto */
+}
+
+/* --- Seção de Chamada para Ação (CTA) --- */
+#call-to-action .button {
+  margin: 0 var(--spacing-sm); /* Espaçamento entre os botões */
+}
+
+/* --- Responsividade --- */
+@media (min-width: 768px) {
+  .about-flex-container {
+    flex-direction: row; /* Imagem e texto lado a lado em telas maiores */
+    text-align: left;
+    justify-content: space-between;
+  }
+
+  .about-image-wrapper {
+    order: 2; /* Move a imagem para a direita em telas maiores */
+    flex-shrink: 0; /* Evita que a imagem encolha */
+  }
+
+  .about-text-content {
+    text-align: left;
+    flex-grow: 1; /* Permite que o texto ocupe o espaço restante */
+  }
+
+  .about-text-content h1,
+  .intro-paragraph {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .education-grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(300px, 1fr)
+    ); /* 2 colunas para formação */
+  }
+
+  .skills-list {
+    justify-content: flex-start; /* Alinha as tags de habilidade à esquerda */
+  }
+
+  #call-to-action .btn-container {
+    justify-content: center; /* Centraliza os botões do CTA */
+  }
+}
