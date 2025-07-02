@@ -164,7 +164,7 @@ header {
   font-size: 1.05rem;
   position: relative;
   display: block;
-  transition: color 0.3s ease; /* Adicionei transição */
+  transition: color 0.3s ease;
 }
 
 .nav-links a::after {
