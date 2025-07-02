@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contato - Tiago Baratieri</title>
 
-    <base id="base-url" href="/">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -14,8 +13,8 @@
       referrerpolicy="no-referrer"
     />
 
-    <link rel="stylesheet" href="/css/global.css" />
-    <link rel="stylesheet" href="/css/contact.css" />
+    <link rel="stylesheet" href="/meu-portfolio/css/global.css" />
+    <link rel="stylesheet" href="/meu-portfolio/css/contact.css" />
   </head>
   <body>
     <header id="main-header"></header>
@@ -84,7 +83,7 @@
                   placeholder="Seu Nome"
                   required
                 />
-                <span class="erro-message" id="name-error"></span>
+                <span class="error-message" id="nameError"></span> 
               </div>
 
               <div class="form-group">
@@ -96,7 +95,7 @@
                   placeholder="Seu E-mail"
                   required
                 />
-                <span class="erro-message" id="email-error"></span>
+                <span class="error-message" id="emailError"></span>
               </div>
               <div class="form-group">
                 <label for="message" class="visually-hidden"
@@ -108,22 +107,16 @@
                   rows="6"
                   placeholder="Sua Mensagem"
                   required
-                >
-              </textarea
-                >
-                <span class="error-message" id="message-error"></span>
+                ></textarea>
+                <span class="error-message" id="messageError"></span>
               </div>
               <button type="submit" class="button primary-button" id="submitButton">
                 Enviar Mensagem
               </button>
-               <div id="formStatus">
-
-               </div> 
-              </form>
-           </div>
+              <div id="formStatus"></div> 
             </form>
           </div>
-        </div>
+          </div>
 
         <div class="cv-download-section">
           <h2>Baixe Meu Currículo</h2>
@@ -132,8 +125,7 @@
             fazer o download do meu currículo.
           </p>
           <a
-            href="/docs/TiagoBaratieri_Curriculo.pdf"
-            download="TiagoBaratieri_Curriculo.pdf"
+            href="/meu-portfolio/docs/TiagoBaratieri_Curriculo.pdf" download="TiagoBaratieri_Curriculo.pdf"
             class="button secondary-button download-button"
           >
             <i class="fas fa-download"></i>
@@ -145,9 +137,6 @@
 
     <footer id="main-footer"></footer>
 
-    <script src="/js/loadComponents.js" defer></script>
-    <script src="/js/darkMode.js" defer></script>
-    <script src="/js/validForm.js" defer></script>
-    <script src="/meu-portfolio/js/baseConfig.js" defer></script>
-  </body>
-</html>
+    <script src="/meu-portfolio/js/loadComponents.js" defer></script> 
+    <script src="/meu-portfolio/js/darkMode.js" defer></script>
+    <script src="/meu-portfolio/js/validForm.js

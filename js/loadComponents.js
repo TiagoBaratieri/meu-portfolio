@@ -55,3 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadComponent('main-footer', '/components/footer.html')
         .catch(error => console.error("Error loading footer:", error)); // Captura erros no carregamento do footer
 });
+
+loadComponent('main-header', '/meu-portfolio/components/header.html');
+loadComponent('main-footer', '/meu-portfolio/components/footer.html');
