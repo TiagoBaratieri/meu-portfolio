@@ -29,8 +29,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-
-
   // Função para limpar erro de um campo específico
   function clearError(element, errorSpan) {
     errorSpan.textContent = "";
@@ -46,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Validação principal do formulário ao tentar enviar
   contactForm.addEventListener("submit", async function (event) {
     event.preventDefault(); // Previne o envio padrão do formulário
-    console.log('Formulário submetido. Iniciando validação...');
+    console.log("Formulário submetido. Iniciando validação...");
     let formIsValid = true; // Flag para controlar a validade geral do formulário
 
     // Limpa todos os erros anteriores e status antes de revalidar
@@ -66,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
         nameError
       );
       formIsValid = false;
+      console.log("Validação do Nome completa. formIsValid:", formIsValid);
     }
 
     // Validar Email
@@ -102,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Simula sucesso
       setFormStatus("Mensagem enviada com sucesso!", true);
       contactForm.reset(); // Limpa os campos
+      console.log("Formulário NÃO é válido. Erros encontrados.");
     }
 
     submitButton.disabled = false; // Habilita o botão novamente, independentemente do sucesso ou falha na validação
