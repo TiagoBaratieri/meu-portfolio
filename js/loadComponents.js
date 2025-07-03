@@ -1,24 +1,22 @@
-// js/loadComponents.js
+// /js/loadComponents.js
 
-// Função para carregar um componente HTML de forma assíncrona
-async function loadComponent(id, url) {
-    const element = document.getElementById(id);
-    if (element) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                // Lança um erro se a resposta não for OK (ex: 404 Not Found)
-                throw new Error(`HTTP error! status: ${response.status} for ${url}`);
-            }
-            const html = await response.text();
-            element.innerHTML = html;
-        } catch (error) {
-            console.error(`Could not load component from ${url}:`, error);
+// Função para carregar e injetar um componente (mantém-se a mesma)
+async function loadComponent(elementId, filePath) {
+    try {
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status} for ${filePath}`);
         }
+        const html = await response.text();
+        document.getElementById(elementId).innerHTML = html;
+        // console.log(`Componente ${filePath} carregado com sucesso.`); 
+    } catch (error) {
+        console.error(`Could not load component from ${filePath}:`, error);
+        throw error; // Propaga o erro para o .catch() do chamador
     }
 }
 
-// Inicializa o menu hambúrguer
+// Lógica para inicializar o menu hambúrguer 
 function initializeHamburgerMenu() {
     const burguerMenu = document.querySelector('.burguer_menu');
     const navLinks = document.querySelector('.nav-links');
@@ -29,7 +27,7 @@ function initializeHamburgerMenu() {
             navLinks.classList.toggle('active');
         });
 
-        // Fechar o menu ao clicar em um link (opcional)
+        // Fechar o menu ao clicar em um link 
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (burguerMenu.classList.contains('active')) {
@@ -38,23 +36,21 @@ function initializeHamburgerMenu() {
                 }
             });
         });
+         console.log('Menu Hambúrguer inicializado.'); 
+    } else {
+        console.warn('Elementos do menu hambúrguer (burguer_menu ou nav-links) não encontrados. Verifique o HTML do cabeçalho.');
     }
 }
 
 // Quando o DOM estiver completamente carregado, carregue os componentes
 document.addEventListener('DOMContentLoaded', () => {
-    // Carregar header e footer. Os caminhos são absolutos a partir da raiz do servidor.
-    // '/components/header.html' assume que 'components' está na raiz do seu projeto.
-    loadComponent('main-header', '/components/header.html')
+   
+    loadComponent('main-header', '/meu-portfolio/components/header.html')
         .then(() => {
-            // Inicializa o menu hambúrguer APÓS o header ser carregado
-            initializeHamburgerMenu();
+            initializeHamburgerMenu(); // Inicializa o menu APÓS o header carregar
         })
-        .catch(error => console.error("Error loading header:", error)); // Captura erros no carregamento do header
+        .catch(error => console.error("Error loading header:", error));
 
-    loadComponent('main-footer', '/components/footer.html')
-        .catch(error => console.error("Error loading footer:", error)); // Captura erros no carregamento do footer
+    loadComponent('main-footer', '/meu-portfolio/components/footer.html')
+        .catch(error => console.error("Error loading footer:", error));
 });
-
-loadComponent('main-header', '/meu-portfolio/components/header.html');
-loadComponent('main-footer', '/meu-portfolio/components/footer.html');
