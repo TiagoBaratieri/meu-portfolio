@@ -10,11 +10,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const emailError = document.getElementById("emailError");
   const messageError = document.getElementById("messageError");
 
-  // Função para exibir erro em um campo específico
+  console.log("nameError (span):", nameError);
+  console.log("emailError (span):", emailError);
+  console.log("messageError (span):", messageError); // Função para exibir erro em um campo específico
+
   function showError(element, message, errorSpan) {
-    errorSpan.textContent = message;
-    element.classList.add("is-invalid");
+    console.log(`Tentando mostrar erro para ${element.id}: "${message}"`); // ADICIONE
+    if (errorSpan) {
+      errorSpan.textContent = message;
+      element.classList.add("is-invalid");
+      console.log(
+        `Erro mostrado para ${element.id}. Texto: ${errorSpan.textContent}`
+      ); // ADICIONE
+    } else {
+      console.error(
+        `ERRO CRÍTICO: Span de erro para ${element.id} não encontrado!`
+      ); // ADICIONE
+    }
   }
+
+
 
   // Função para limpar erro de um campo específico
   function clearError(element, errorSpan) {
@@ -31,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Validação principal do formulário ao tentar enviar
   contactForm.addEventListener("submit", async function (event) {
     event.preventDefault(); // Previne o envio padrão do formulário
-
+    console.log('Formulário submetido. Iniciando validação...');
     let formIsValid = true; // Flag para controlar a validade geral do formulário
 
     // Limpa todos os erros anteriores e status antes de revalidar
